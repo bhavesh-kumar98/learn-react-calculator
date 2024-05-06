@@ -1,6 +1,6 @@
 import styles from "./ButtonContainer.module.css";
 
-export default function ButtonContainer() {
+export default function ButtonContainer({onBtnClick}) {
   const arithmeticOp = ["/", "*", "-", "+", "C", "="];
   const buttonsNames = [
     "C",
@@ -24,7 +24,9 @@ export default function ButtonContainer() {
   return (
     <div id="buttons-container" className={styles.btnContainer}>
       {buttonsNames.map((buttonsName) => (
-        <button
+        <button 
+        onClick={onBtnClick}
+          key={buttonsName}
           className={`${styles.btn}  ${
             arithmeticOp.includes(buttonsName) ? styles.btnOpr : styles.btnNum
           }`}
